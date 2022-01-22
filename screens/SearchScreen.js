@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, Button, SafeAreaView, Platform } from "react-native";
+import { StyleSheet, Text, SafeAreaView, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 const SearchScreen = () => {

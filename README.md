@@ -1,5 +1,6 @@
 # kicksflip
 
+- A safe and secure way to trade your sneakers online!
 - Online shoe trading service
 - sneaker trading platform that allows users to store all their collection of shoes and make their choice of shoes public for trade offers
 - we are the middle man for checking authenticity and safe way for trading shoes
