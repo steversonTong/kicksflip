@@ -1,20 +1,11 @@
+import React from "react";
 import { StyleSheet, Text, Button, SafeAreaView, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={{ color: "white" }}>Search Screen</Text>
-      <Button
-        title="Go to search screen ... again"
-        onPress={() => navigation.push("Search")}
-      />
-      <Button title="Go to home" onPress={() => navigation.navigate("Home")} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go to first screen"
-        onPress={() => navigation.popToTop()}
-      />
     </SafeAreaView>
   );
 };

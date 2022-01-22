@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, Button, SafeAreaView, Platform } from "react-native";
+import { StyleSheet, Text, SafeAreaView, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-const HomeScreen = ({}) => {
+const AccountScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{ color: "white" }}>Home Screen</Text>
+      <Text style={{ color: "white" }}>Account Screen</Text>
     </SafeAreaView>
   );
 };
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default AccountScreen;
