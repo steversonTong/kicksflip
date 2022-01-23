@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   SafeAreaView,
@@ -15,6 +15,26 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
 const SignInScreen = () => {
+  const [data, setData] = React.useState({
+    email: "",
+    password: "",
+    secureTextEntry: true,
+  });
+
+  const handlePasswordChange = (val) => {
+    setData({
+      ...data,
+      password: val,
+    });
+  };
+
+  const updateSecureTextEntry = () => {
+    setData({
+      ...data,
+      secureTextEntry: !data.secureTextEntry,
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.text_header}>
@@ -35,11 +55,18 @@ const SignInScreen = () => {
           <Feather name="lock" color="#4B4B4B" size={20} />
           <TextInput
             placeholder="Password"
-            secureTextEntry={true}
+            secureTextEntry={data.secureTextEntry ? true : false}
             style={styles.text_input}
             autoCapitalize="none"
+            onChangeText={(val) => handlePasswordChange(val)}
           />
-          <Feather name="eye-off" color="#4B4B4B" size={20} />
+          <TouchableOpacity onPress={updateSecureTextEntry}>
+            {data.secureTextEntry ? (
+              <Feather name="eye-off" color="#4B4B4B" size={20} />
+            ) : (
+              <Feather name="eye" color="#4B4B4B" size={20} />
+            )}
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
