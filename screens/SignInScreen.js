@@ -13,8 +13,9 @@ import { StatusBar } from "expo-status-bar";
 import * as Animatable from "react-native-animatable";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
+import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: "",
     password: "",
@@ -37,6 +38,7 @@ const SignInScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="white" barStyle="light content" />
       <View style={styles.text_header}>
         <Text style={styles.text_header}>Log In</Text>
       </View>
@@ -67,6 +69,14 @@ const SignInScreen = () => {
               <Feather name="eye" color="#4B4B4B" size={20} />
             )}
           </TouchableOpacity>
+        </View>
+        <View style={[styles.text_header, { marginTop: 30 }]}>
+          <Text>Forgot Password</Text>
+          <View style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+              <Text style={{ color: "white" }}>Log In</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -124,7 +134,12 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    marginTop: 50,
+    justifyContent: "center",
+    marginTop: 30,
+    backgroundColor: "#4B4B4B",
+    borderRadius: 10,
+    height: 40,
+    width: 250,
   },
   signIn: {
     width: "100%",
