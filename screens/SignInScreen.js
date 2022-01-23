@@ -7,6 +7,8 @@ import {
   TextInput,
   Platform,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -33,55 +35,68 @@ const SignInScreen = ({ navigation }) => {
     });
   };
 
+  const HideKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
+
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor="white" barStyle="light content" />
-      <View style={styles.text_header}>
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Feather name="arrow-left" color="#556B2F" size={25} />
-          </TouchableOpacity>
+    <HideKeyboard>
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor="white" barStyle="light content" />
+        <View style={styles.text_header}>
           <Text style={styles.text_header}>Log In</Text>
         </View>
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.text_basic}>Account</Text>
-        <View style={styles.action}>
-          <FontAwesome name="user-o" color="#4B4B4B" size={20} />
-          <TextInput
-            placeholder="Email or Username"
-            style={styles.text_input}
-            autoCapitalize="none"
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Feather
+            name="arrow-left"
+            color="#556B2F"
+            size={25}
+            style={{ marginTop: -24, paddingLeft: 30 }}
           />
-        </View>
-        <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
-        <View style={styles.action}>
-          <Feather name="lock" color="#4B4B4B" size={20} />
-          <TextInput
-            placeholder="Password"
-            secureTextEntry={data.secureTextEntry ? true : false}
-            style={styles.text_input}
-            autoCapitalize="none"
-            onChangeText={(val) => handlePasswordChange(val)}
-          />
-          <TouchableOpacity onPress={updateSecureTextEntry}>
-            {data.secureTextEntry ? (
-              <Feather name="eye-off" color="#4B4B4B" size={20} />
-            ) : (
-              <Feather name="eye" color="#4B4B4B" size={20} />
-            )}
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.text_header, { marginTop: 30 }]}>
-          <Text>Forgot Password</Text>
-          <View style={styles.button}>
-            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-              <Text style={{ color: "white" }}>Log In</Text>
+        </TouchableOpacity>
+        <View style={styles.body}>
+          <Text style={styles.text_basic}>Account</Text>
+          <View style={styles.action}>
+            <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+            <TextInput
+              placeholder="Email or Username"
+              style={styles.text_input}
+              autoCapitalize="none"
+            />
+          </View>
+          <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
+          <View style={styles.action}>
+            <Feather name="lock" color="#4B4B4B" size={20} />
+            <TextInput
+              placeholder="Password"
+              secureTextEntry={data.secureTextEntry ? true : false}
+              style={styles.text_input}
+              autoCapitalize="none"
+              onChangeText={(val) => handlePasswordChange(val)}
+            />
+            <TouchableOpacity onPress={updateSecureTextEntry}>
+              {data.secureTextEntry ? (
+                <Feather name="eye-off" color="#4B4B4B" size={20} />
+              ) : (
+                <Feather name="eye" color="#4B4B4B" size={20} />
+              )}
             </TouchableOpacity>
           </View>
+          <View style={[styles.text_header, { marginTop: 30 }]}>
+            <Text>Forgot Password</Text>
+            <View style={styles.button}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("HomeScreen")}
+              >
+                <Text style={{ color: "white" }}>Log In</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </HideKeyboard>
   );
 };
 
