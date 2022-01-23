@@ -10,10 +10,8 @@ import {
   Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import * as Animatable from "react-native-animatable";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
@@ -40,7 +38,12 @@ const SignInScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="light content" />
       <View style={styles.text_header}>
-        <Text style={styles.text_header}>Log In</Text>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Feather name="arrow-left" color="#556B2F" size={25} />
+          </TouchableOpacity>
+          <Text style={styles.text_header}>Log In</Text>
+        </View>
       </View>
       <View style={styles.body}>
         <Text style={styles.text_basic}>Email</Text>
@@ -136,7 +139,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "#4B4B4B",
+    backgroundColor: "#556B2F",
     borderRadius: 10,
     height: 40,
     width: 250,
