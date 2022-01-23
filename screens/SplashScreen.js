@@ -20,9 +20,7 @@ const SplashScreen = ({ navigation }) => {
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <View style={styles.header}>
         <Animatable.Image
-          animation="bounceIn"
-          duraton="1500"
-          source={require("../assets/KSFlogo.png")}
+          source={require("../assets/kicksfliplogo.png")}
           style={styles.logo}
           resizeMode="stretch"
         />
@@ -77,7 +75,7 @@ const SplashScreen = ({ navigation }) => {
 export default SplashScreen;
 
 const { height } = Dimensions.get("screen");
-const height_logo = height * 0.28;
+const height_logo = height * 0.35;
 
 const styles = StyleSheet.create({
   container: {
