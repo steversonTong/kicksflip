@@ -1,13 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, Button, SafeAreaView, Platform } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Platform,
+  StyleSheet,
+  StatusBar,
+  Alert,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
+import * as Animatable from "react-native-animatable";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Feather from "react-native-vector-icons/Feather";
 
 const SignInScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={{ color: "white" }}>SignIn Screen</Text>
       <Button title="SignIn" onPress={() => alert("Clicked!")} />
-    </SafeAreaView>
+    </View>
   );
 };
 
