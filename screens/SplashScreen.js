@@ -1,16 +1,14 @@
 import React from "react";
 import {
-  StyleSheet,
+  View,
   Text,
-  Button,
-  SafeAreaView,
   TouchableOpacity,
   Dimensions,
+  StyleSheet,
+  StatusBar,
   Image,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import * as Animatable from "react-native-animatable";
-import LinearGradient from "react-native-linear-gradient";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useTheme } from "@react-navigation/native";
 
@@ -18,9 +16,9 @@ const SplashScreen = ({ navigation }) => {
   const { colors } = useTheme();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
-      <SafeAreaView style={styles.header}>
+      <View style={styles.header}>
         <Animatable.Image
           animation="bounceIn"
           duraton="1500"
@@ -28,8 +26,8 @@ const SplashScreen = ({ navigation }) => {
           style={styles.logo}
           resizeMode="stretch"
         />
-      </SafeAreaView>
-      <Animatable.SafeAreaView
+      </View>
+      <Animatable.View
         style={[
           styles.footer,
           {
@@ -46,24 +44,37 @@ const SplashScreen = ({ navigation }) => {
             },
           ]}
         >
-          Stay connected with everyone!
+          A safe and secure way to trade your sneakers online!
         </Text>
         <Text style={styles.text}>Sign in with account</Text>
-        <SafeAreaView style={styles.button}>
-          <TouchableOpacity onPress={() => navigation.navigate("SignInScreen")}>
-            <LinearGradient
-              colors={["#08d4c4", "#01ab9d"]}
-              style={styles.signIn}
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("SignUpScreen")}
             >
-              <Text style={styles.textSign}>Get Started</Text>
-              <MaterialIcons name="navigate-next" color="#fff" size={20} />
-            </LinearGradient>
-          </TouchableOpacity>
-        </SafeAreaView>
-      </Animatable.SafeAreaView>
-    </SafeAreaView>
+              <Text style={styles.textSign}>
+                Get Started
+                <MaterialIcons name="navigate-next" color="#fff" size={20} />
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("SignInScreen")}
+            >
+              <Text style={styles.textSign}>
+                SignIn
+                <MaterialIcons name="navigate-next" color="#fff" size={20} />
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Animatable.View>
+    </View>
   );
 };
+
+export default SplashScreen;
 
 const { height } = Dimensions.get("screen");
 const height_logo = height * 0.28;
@@ -100,8 +111,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   button: {
-    alignItems: "flex-end",
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: 30,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    borderRadius: 10,
+    height: 40,
+    width: 250,
   },
   signIn: {
     width: 150,
@@ -114,7 +130,7 @@ const styles = StyleSheet.create({
   textSign: {
     color: "white",
     fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
-
-export default SplashScreen;
