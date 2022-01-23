@@ -1,12 +1,12 @@
 import React from "react";
 import {
   View,
+  SafeAreaView,
   Text,
   TouchableOpacity,
   TextInput,
   Platform,
   StyleSheet,
-  StatusBar,
   Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
@@ -17,8 +17,9 @@ import Feather from "react-native-vector-icons/Feather";
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={{ color: "white" }}>SignIn Screen</Text>
-      <Button title="SignIn" onPress={() => alert("Clicked!")} />
+      <SafeAreaView style={styles.header}>
+        <Text style={styles.text_header}>Log In</Text>
+      </SafeAreaView>
     </View>
   );
 };
@@ -28,30 +29,19 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#009387",
+    backgroundColor: "#fff",
   },
   header: {
     flex: 1,
-    justifyContent: "flex-end",
+    alignItems: "center",
+    justifyContent: "flex-start",
     paddingHorizontal: 20,
-    paddingBottom: 50,
   },
-  footer: {
-    flex: 3,
-    backgroundColor: "#fff",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-  },
+
   text_header: {
-    color: "#fff",
+    color: "black",
     fontWeight: "bold",
-    fontSize: 30,
-  },
-  text_footer: {
-    color: "#05375a",
-    fontSize: 18,
+    fontSize: 20,
   },
   action: {
     flexDirection: "row",
