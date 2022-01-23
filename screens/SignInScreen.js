@@ -16,11 +16,17 @@ import Feather from "react-native-vector-icons/Feather";
 
 const SignInScreen = () => {
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.text_header}>
         <Text style={styles.text_header}>Log In</Text>
-      </SafeAreaView>
-    </View>
+      </View>
+      <View style={styles.body}>
+        <Text style={styles.text_basic}>Email</Text>
+        <View style={styles.action}>
+          <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -30,24 +36,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-  },
-  header: {
-    flex: 1,
-    alignItems: "center",
     justifyContent: "flex-start",
     paddingHorizontal: 20,
   },
-
   text_header: {
-    color: "black",
+    color: "#556B2F",
+    alignItems: "center",
     fontWeight: "bold",
     fontSize: 20,
+  },
+  body: {
+    backgroundColor: "#fff",
+    paddingHorizontal: 40,
+    paddingVertical: 50,
+  },
+  text_basic: {
+    color: "#4B4B4B",
+    alignItems: "flex-start",
+    fontSize: 18,
   },
   action: {
     flexDirection: "row",
     marginTop: 10,
     borderBottomWidth: 1,
-    borderBottomColor: "#f2f2f2",
+    borderBottomColor: "#4B4B4B",
     paddingBottom: 5,
   },
   actionError: {
