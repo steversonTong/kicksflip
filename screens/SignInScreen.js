@@ -24,6 +24,22 @@ const SignInScreen = () => {
         <Text style={styles.text_basic}>Email</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Email or Username"
+            style={styles.text_input}
+            autoCapitalize="none"
+          />
+        </View>
+        <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
+        <View style={styles.action}>
+          <Feather name="lock" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={true}
+            style={styles.text_input}
+            autoCapitalize="none"
+          />
+          <Feather name="eye-off" color="#4B4B4B" size={20} />
         </View>
       </View>
     </SafeAreaView>
@@ -69,7 +85,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#FF0000",
     paddingBottom: 5,
   },
-  textInput: {
+  text_input: {
     flex: 1,
     marginTop: Platform.OS === "ios" ? 0 : -12,
     paddingLeft: 10,
