@@ -14,7 +14,7 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    backgroundColor: "#4B4B4B",
     alignItems: "center",
     //   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },

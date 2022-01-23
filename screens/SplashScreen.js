@@ -82,7 +82,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#009387",
+    backgroundColor: "#4B4B4B",
   },
   header: {
     flex: 2,
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     color: "#05375a",
     fontSize: 30,
     fontWeight: "bold",
+    marginTop: -30,
   },
   text: {
     color: "grey",
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 30,
-    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    backgroundColor: "#4B4B4B",
     borderRadius: 10,
     height: 40,
     width: 250,
