@@ -7,7 +7,6 @@ import {
   TextInput,
   Platform,
   StyleSheet,
-  Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -46,7 +45,7 @@ const SignInScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.body}>
-        <Text style={styles.text_basic}>Email</Text>
+        <Text style={styles.text_basic}>Account</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#4B4B4B" size={20} />
           <TextInput
