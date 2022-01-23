@@ -42,6 +42,7 @@ const SignInScreen = ({ navigation }) => {
   );
 
   return (
+    //password hidekey not working properly
     <HideKeyboard>
       <SafeAreaView style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="light content" />
