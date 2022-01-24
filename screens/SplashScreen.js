@@ -20,8 +20,8 @@ const SplashScreen = ({ navigation }) => {
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <View style={styles.header}>
         <Animatable.Image
-          animation="bounceIn"
-          duraton="1500"
+          // animation="bounceIn"
+          // duraton="1500"
           source={require("../assets/kicksfliplogo.png")}
           style={styles.logo}
           resizeMode="stretch"

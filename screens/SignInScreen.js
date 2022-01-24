@@ -18,7 +18,7 @@ import { AuthContext } from "../components/context";
 
 const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
-    email: "",
+    username: "",
     password: "",
     secureTextEntry: true,
   });
@@ -44,6 +44,10 @@ const SignInScreen = ({ navigation }) => {
       {children}
     </TouchableWithoutFeedback>
   );
+
+  const loginHandle = (username, password) => {
+    signIn(username, password);
+  };
 
   return (
     //password hidekey not working properly
@@ -97,7 +101,7 @@ const SignInScreen = ({ navigation }) => {
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
-                signIn();
+                loginHandle(data.username, data.password);
               }}
             >
               <Text style={{ color: "white" }}>Log In</Text>

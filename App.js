@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useReducer } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, ActivityIndicator } from "react-native";
@@ -17,7 +17,7 @@ const App = () => {
   const initialLoginState = {
     isLoading: true,
     userName: null,
-    userEmail: null,
+    // userEmail: null,
     userToken: null,
   };
 
@@ -32,8 +32,8 @@ const App = () => {
       case "LOGIN":
         return {
           ...prevState,
-          userName: action.id1,
-          userEmail: action.id2,
+          userName: action.id,
+          // userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
@@ -41,15 +41,15 @@ const App = () => {
         return {
           ...prevState,
           userName: null,
-          userEmail: null,
+          // userEmail: null,
           userToken: null,
           isLoading: false,
         };
       case "REGISTER":
         return {
           ...prevState,
-          userName: action.id1,
-          userEmail: action.id2,
+          userName: action.id,
+          // userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
@@ -64,22 +64,19 @@ const App = () => {
   const authContext = React.useMemo(
     //NEED TO IMPLIMENT DATABASE AND API HERE TO BE ABLE TO TRUELY AUTHETICATE USER AND PASSWORD
     () => ({
-      signIn: (userName, userEmail, password) => {
+      signIn: (userName, password) => {
         // setUserToken("rfdsa");
         // setIsLoading(false);
         let userToken;
-        useName = null;
-        userEmail = null;
-        if (
-          (userName == "user" || userEmail == "email") &&
-          password == "pass"
-        ) {
+        userName = null;
+        // userEmail = null;
+        if (userName == "user" && password == "pass") {
           userToken = "vsdfv";
         }
         dispatch({
           type: "LOGIN",
-          id1: userName,
-          id2: userEmail,
+          id: userName,
+          // id2: userEmail,
           token: userToken,
         });
       },
