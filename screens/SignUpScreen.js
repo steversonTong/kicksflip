@@ -18,13 +18,22 @@ const SignUpScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: "",
     password: "",
+    confirm_password: "",
     secureTextEntry: true,
+    confirm_secureTextEntry: true,
   });
 
   const handlePasswordChange = (val) => {
     setData({
       ...data,
       password: val,
+    });
+  };
+
+  const handleConfirmPasswordChange = (val) => {
+    setData({
+      ...data,
+      confirm_password: val,
     });
   };
 
@@ -35,6 +44,13 @@ const SignUpScreen = ({ navigation }) => {
     });
   };
 
+  const updateConfirmSecureTextEntry = () => {
+    setData({
+      ...data,
+      confirm_secureTextEntry: !data.confirm_secureTextEntry,
+    });
+  };
+
   const HideKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
@@ -42,89 +58,90 @@ const SignUpScreen = ({ navigation }) => {
   );
 
   return (
-    <HideKeyboard>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="white" barStyle="light content" />
-        <View style={styles.text_header}>
-          <Text style={styles.text_header}>Sign Up</Text>
-        </View>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Feather
-            name="arrow-left"
-            color="#556B2F"
-            size={25}
-            style={{ marginTop: -24, paddingLeft: 30 }}
+    // <HideKeyboard>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="white" barStyle="light content" />
+      <View style={styles.text_header}>
+        <Text style={styles.text_header}>Sign Up</Text>
+      </View>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Feather
+          name="arrow-left"
+          color="#556B2F"
+          size={25}
+          style={{ marginTop: -24, paddingLeft: 30 }}
+        />
+      </TouchableOpacity>
+      <View style={styles.body}>
+        <Text style={styles.text_basic}>Email</Text>
+        <View style={styles.action}>
+          <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Create Email"
+            style={styles.text_input}
+            autoCapitalize="none"
           />
-        </TouchableOpacity>
-        <View style={styles.body}>
-          <Text style={styles.text_basic}>Email</Text>
-          <View style={styles.action}>
-            <FontAwesome name="user-o" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Create Email"
-              style={styles.text_input}
-              autoCapitalize="none"
-            />
-          </View>
-          <Text style={[styles.text_basic, { marginTop: 30 }]}>Username</Text>
-          <View style={styles.action}>
-            <FontAwesome name="user-o" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Create Username"
-              style={styles.text_input}
-              autoCapitalize="none"
-            />
-          </View>
-          <Text style={[styles.text_basic, { marginTop: 30 }]}>Password</Text>
-          <View style={styles.action}>
-            <Feather name="lock" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Create Password"
-              secureTextEntry={data.secureTextEntry ? true : false}
-              style={styles.text_input}
-              autoCapitalize="none"
-              onChangeText={(val) => handlePasswordChange(val)}
-            />
-            <TouchableOpacity onPress={updateSecureTextEntry}>
-              {data.secureTextEntry ? (
-                <Feather name="eye-off" color="#4B4B4B" size={20} />
-              ) : (
-                <Feather name="eye" color="#4B4B4B" size={20} />
-              )}
-            </TouchableOpacity>
-          </View>
-          <Text style={[styles.text_basic, { marginTop: 30 }]}>
-            Confirm Password
+        </View>
+        <Text style={[styles.text_basic, { marginTop: 30 }]}>Username</Text>
+        <View style={styles.action}>
+          <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Create Username"
+            style={styles.text_input}
+            autoCapitalize="none"
+          />
+        </View>
+        <Text style={[styles.text_basic, { marginTop: 30 }]}>Password</Text>
+        <View style={styles.action}>
+          <Feather name="lock" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Create Password"
+            secureTextEntry={data.secureTextEntry ? true : false}
+            style={styles.text_input}
+            autoCapitalize="none"
+            onChangeText={(val) => handlePasswordChange(val)}
+          />
+          <TouchableOpacity onPress={updateSecureTextEntry}>
+            {data.secureTextEntry ? (
+              <Feather name="eye-off" color="#4B4B4B" size={20} />
+            ) : (
+              <Feather name="eye" color="#4B4B4B" size={20} />
+            )}
+          </TouchableOpacity>
+        </View>
+        <Text style={[styles.text_basic, { marginTop: 30 }]}>
+          Confirm Password
+        </Text>
+        <View style={styles.action}>
+          <Feather name="lock" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Confirm Password"
+            secureTextEntry={data.confirm_secureTextEntry ? true : false}
+            style={styles.text_input}
+            autoCapitalize="none"
+            onChangeText={(val) => handleConfirmPasswordChange(val)}
+          />
+          <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
+            {data.secureTextEntry ? (
+              <Feather name="eye-off" color="#4B4B4B" size={20} />
+            ) : (
+              <Feather name="eye" color="#4B4B4B" size={20} />
+            )}
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.text_header, { marginTop: 30 }]}>
+          <Text style={{ color: "black", fontSize: 10 }}>
+            By proceeding, you agree to both: Private Policy & Terms of Services
           </Text>
-          <View style={styles.action}>
-            <Feather name="lock" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Confirm Password"
-              secureTextEntry={data.secureTextEntry ? true : false}
-              style={styles.text_input}
-              autoCapitalize="none"
-              onChangeText={(val) => handlePasswordChange(val)}
-            />
-            <TouchableOpacity onPress={updateSecureTextEntry}>
-              {data.secureTextEntry ? (
-                <Feather name="eye-off" color="#4B4B4B" size={20} />
-              ) : (
-                <Feather name="eye" color="#4B4B4B" size={20} />
-              )}
+          <View style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+              <Text style={{ color: "white" }}>Sign Up</Text>
             </TouchableOpacity>
-          </View>
-          <View style={[styles.text_header, { marginTop: 30 }]}>
-            <View style={styles.button}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-              >
-                <Text style={{ color: "white" }}>Log In</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </View>
-      </SafeAreaView>
-    </HideKeyboard>
+      </View>
+    </SafeAreaView>
+    // </HideKeyboard>
   );
 };
 

@@ -43,61 +43,62 @@ const SignInScreen = ({ navigation }) => {
 
   return (
     //password hidekey not working properly
-    <HideKeyboard>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="white" barStyle="light content" />
-        <View style={styles.text_header}>
-          <Text style={styles.text_header}>Log In</Text>
-        </View>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Feather
-            name="arrow-left"
-            color="#556B2F"
-            size={25}
-            style={{ marginTop: -24, paddingLeft: 30 }}
+    // <HideKeyboard>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="white" barStyle="light content" />
+      <View style={styles.text_header}>
+        <Text style={styles.text_header}>Log In</Text>
+      </View>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Feather
+          name="arrow-left"
+          color="#556B2F"
+          size={25}
+          style={{ marginTop: -24, paddingLeft: 30 }}
+        />
+      </TouchableOpacity>
+      <View style={styles.body}>
+        <Text style={styles.text_basic}>Account</Text>
+        <View style={styles.action}>
+          <FontAwesome name="user-o" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Email or Username"
+            style={styles.text_input}
+            autoCapitalize="none"
           />
-        </TouchableOpacity>
-        <View style={styles.body}>
-          <Text style={styles.text_basic}>Account</Text>
-          <View style={styles.action}>
-            <FontAwesome name="user-o" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Email or Username"
-              style={styles.text_input}
-              autoCapitalize="none"
-            />
-          </View>
-          <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
-          <View style={styles.action}>
-            <Feather name="lock" color="#4B4B4B" size={20} />
-            <TextInput
-              placeholder="Password"
-              secureTextEntry={data.secureTextEntry ? true : false}
-              style={styles.text_input}
-              autoCapitalize="none"
-              onChangeText={(val) => handlePasswordChange(val)}
-            />
-            <TouchableOpacity onPress={updateSecureTextEntry}>
-              {data.secureTextEntry ? (
-                <Feather name="eye-off" color="#4B4B4B" size={20} />
-              ) : (
-                <Feather name="eye" color="#4B4B4B" size={20} />
-              )}
+        </View>
+        <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
+        <View style={styles.action} keyboardShouldPersistTaps="handled">
+          <Feather name="lock" color="#4B4B4B" size={20} />
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={data.secureTextEntry ? true : false}
+            style={styles.text_input}
+            autoCapitalize="none"
+            onChangeText={(val) => handlePasswordChange(val)}
+          />
+          <TouchableOpacity onPress={updateSecureTextEntry}>
+            {data.secureTextEntry ? (
+              <Feather name="eye-off" color="#4B4B4B" size={20} />
+            ) : (
+              <Feather name="eye" color="#4B4B4B" size={20} />
+            )}
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.text_header, { marginTop: 30 }]}>
+          <Text>Forgot Password</Text>
+          <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
+            By proceeding, you agree to both: Private Policy & Terms of Services
+          </Text>
+          <View style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+              <Text style={{ color: "white" }}>Log In</Text>
             </TouchableOpacity>
           </View>
-          <View style={[styles.text_header, { marginTop: 30 }]}>
-            <Text>Forgot Password</Text>
-            <View style={styles.button}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-              >
-                <Text style={{ color: "white" }}>Log In</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
         </View>
-      </SafeAreaView>
-    </HideKeyboard>
+      </View>
+    </SafeAreaView>
+    // </HideKeyboard>
   );
 };
 
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: "#556B2F",
     borderRadius: 10,
     height: 40,
