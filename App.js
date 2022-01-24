@@ -17,7 +17,7 @@ const App = () => {
   const initialLoginState = {
     isLoading: true,
     userName: null,
-    // userEmail: null,
+    userEmail: null,
     userToken: null,
   };
 
@@ -32,8 +32,8 @@ const App = () => {
       case "LOGIN":
         return {
           ...prevState,
-          userName: action.id,
-          // userEmail: action.id,
+          userName: action.id1,
+          userEmail: action.id2,
           userToken: action.token,
           isLoading: false,
         };
@@ -41,13 +41,15 @@ const App = () => {
         return {
           ...prevState,
           userName: null,
+          userEmail: null,
           userToken: null,
           isLoading: false,
         };
       case "REGISTER":
         return {
           ...prevState,
-          userName: action.id,
+          userName: action.id1,
+          userEmail: action.id2,
           userToken: action.token,
           isLoading: false,
         };
@@ -60,14 +62,33 @@ const App = () => {
   );
 
   const authContext = React.useMemo(
+    //NEED TO IMPLIMENT DATABASE AND API HERE TO BE ABLE TO TRUELY AUTHETICATE USER AND PASSWORD
     () => ({
-      signIn: () => {
+      signIn: (userName, userEmail, password) => {
         // setUserToken("rfdsa");
         // setIsLoading(false);
+        let userToken;
+        useName = null;
+        userEmail = null;
+        if (
+          (userName == "user" || userEmail == "email") &&
+          password == "pass"
+        ) {
+          userToken = "vsdfv";
+        }
+        dispatch({
+          type: "LOGIN",
+          id1: userName,
+          id2: userEmail,
+          token: userToken,
+        });
       },
       signOut: () => {
         // setUserToken(null);
         // setIsLoading(false);
+        dispatch({
+          type: "LOGOUT",
+        });
       },
       signUp: () => {
         // setUserToken("rfdsa");
@@ -79,12 +100,16 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false);
+      // setIsLoading(false);
+      dispatch({
+        type: "RETRIEVE_TOKEN",
+        token: "afgeswf",
+      });
     }),
       1000;
   }, []);
 
-  if (isLoading) {
+  if (loginState.isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" />
@@ -95,7 +120,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        {userToken != null ? <MainTabScreen /> : <RootStackScreen />}
+        {loginState.userToken != null ? <MainTabScreen /> : <RootStackScreen />}
       </NavigationContainer>
     </AuthContext.Provider>
   );
