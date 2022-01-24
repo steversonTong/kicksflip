@@ -11,7 +11,7 @@ const App = () => {
   const [userToken, setUserToken] = React.useState(null);
 
   if (isLoading) {
-    retuarn(
+    return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" />
       </View>
