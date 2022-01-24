@@ -14,12 +14,16 @@ import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
+import { AuthContext } from "../components/context";
+
 const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     email: "",
     password: "",
     secureTextEntry: true,
   });
+
+  const { signIn } = React.useContext(AuthContext);
 
   const handlePasswordChange = (val) => {
     setData({
@@ -91,7 +95,11 @@ const SignInScreen = ({ navigation }) => {
             By proceeding, you agree to both: Private Policy & Terms of Services
           </Text>
           <View style={styles.button}>
-            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+            <TouchableOpacity
+              onPress={() => {
+                signIn();
+              }}
+            >
               <Text style={{ color: "white" }}>Log In</Text>
             </TouchableOpacity>
           </View>

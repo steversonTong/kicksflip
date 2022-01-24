@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, ActivityIndicator } from "react-native";
+
 import MainTabScreen from "./screens/MainTabScreen";
 import RootStackScreen from "./screens/RootStackScreen";
-import { View, ActivityIndicator } from "react-native";
+
+import { AuthContext } from "./components/context";
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -13,15 +17,15 @@ const App = () => {
   const authContext = React.useMemo(() => ({
     signIn: () => {
       setUserToken("rfdsa");
-      setIsLoading(flase);
+      setIsLoading(false);
     },
     signOut: () => {
       setUserToken(null);
-      setIsLoading(flase);
+      setIsLoading(false);
     },
     signUp: () => {
       setUserToken("rfdsa");
-      setIsLoading(flase);
+      setIsLoading(false);
     },
   }));
 
@@ -41,10 +45,11 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <RootStackScreen />
-      {/* <MainTabScreen /> */}
-    </NavigationContainer>
+    <AuthContext.Provider value={authContext}>
+      <NavigationContainer>
+        {userToken != null ? <MainTabScreen /> : <RootStackScreen />}
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
 };
 
