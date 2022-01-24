@@ -53,7 +53,7 @@ const SplashScreen = ({ navigation }) => {
               onPress={() => navigation.navigate("SignUpScreen")}
             >
               <Text style={styles.textSign}>
-                Get Started
+                Sign Up
                 <MaterialIcons name="navigate-next" color="#fff" size={20} />
               </Text>
             </TouchableOpacity>
