@@ -76,7 +76,7 @@ const SignInScreen = ({ navigation }) => {
           />
         </View>
         <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
-        <View style={styles.action} keyboardShouldPersistTaps="handled">
+        <View style={styles.action}>
           <Feather name="lock" color="#4B4B4B" size={20} />
           <TextInput
             placeholder="Password"
@@ -94,9 +94,13 @@ const SignInScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={[styles.text_header, { marginTop: 30 }]}>
-          <Text>Forgot Password</Text>
+          <TouchableOpacity>
+            <Text>Forgot Password</Text>
+          </TouchableOpacity>
           <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
-            By proceeding, you agree to both: Private Policy & Terms of Services
+            By proceeding, you agree to both:{" "}
+            <Text style={{ color: "blue" }}>Private Policy</Text> &{" "}
+            <Text style={{ color: "blue" }}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
             <TouchableOpacity

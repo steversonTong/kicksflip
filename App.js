@@ -18,7 +18,6 @@ const App = () => {
   const initialLoginState = {
     isLoading: true,
     userName: null,
-    // userEmail: null,
     userToken: null,
   };
 
@@ -63,11 +62,8 @@ const App = () => {
     //NEED TO IMPLIMENT DATABASE AND API HERE TO BE ABLE TO TRUELY AUTHETICATE USER AND PASSWORD
     () => ({
       signIn: async (userName, password) => {
-        // setUserToken("rfdsa");
-        // setIsLoading(false);
         let userToken;
         userToken = null;
-        // userEmail = null;
         if (userName == "user" && password == "pass") {
           userToken = "vsdfv";
           try {
@@ -79,13 +75,10 @@ const App = () => {
         dispatch({
           type: "LOGIN",
           id: userName,
-          // id2: userEmail,
           token: userToken,
         });
       },
       signOut: async () => {
-        // setUserToken(null);
-        // setIsLoading(false);
         try {
           await AsyncStorage.removeItem("userToken");
         } catch (e) {
@@ -95,10 +88,7 @@ const App = () => {
           type: "LOGOUT",
         });
       },
-      signUp: () => {
-        // setUserToken("rfdsa");
-        // setIsLoading(false);
-      },
+      signUp: () => {},
     }),
     []
   );
