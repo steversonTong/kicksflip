@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useReducer } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, ActivityIndicator } from "react-native";
+// import { AsyncStorage } from "@react-native-async-storage/async-storage";
 
 import MainTabScreen from "./screens/MainTabScreen";
 import RootStackScreen from "./screens/RootStackScreen";
@@ -33,7 +34,6 @@ const App = () => {
         return {
           ...prevState,
           userName: action.id,
-          // userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
@@ -41,7 +41,6 @@ const App = () => {
         return {
           ...prevState,
           userName: null,
-          // userEmail: null,
           userToken: null,
           isLoading: false,
         };
@@ -49,7 +48,6 @@ const App = () => {
         return {
           ...prevState,
           userName: action.id,
-          // userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
@@ -64,14 +62,19 @@ const App = () => {
   const authContext = React.useMemo(
     //NEED TO IMPLIMENT DATABASE AND API HERE TO BE ABLE TO TRUELY AUTHETICATE USER AND PASSWORD
     () => ({
-      signIn: (userName, password) => {
+      signIn: async (userName, password) => {
         // setUserToken("rfdsa");
         // setIsLoading(false);
         let userToken;
-        userName = null;
+        userToken = null;
         // userEmail = null;
         if (userName == "user" && password == "pass") {
           userToken = "vsdfv";
+          try {
+            await AsyncStorage.setItem("userToken", userToken);
+          } catch (e) {
+            console.log(e);
+          }
         }
         dispatch({
           type: "LOGIN",
@@ -80,9 +83,14 @@ const App = () => {
           token: userToken,
         });
       },
-      signOut: () => {
+      signOut: async () => {
         // setUserToken(null);
         // setIsLoading(false);
+        try {
+          await AsyncStorage.removeItem("userToken");
+        } catch (e) {
+          console.log(e);
+        }
         dispatch({
           type: "LOGOUT",
         });
@@ -96,11 +104,18 @@ const App = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       // setIsLoading(false);
+      let userToken;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem("userToken");
+      } catch (e) {
+        console.log(e);
+      }
       dispatch({
         type: "RETRIEVE_TOKEN",
-        token: "afgeswf",
+        token: userToken,
       });
     }),
       1000;
