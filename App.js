@@ -65,8 +65,8 @@ const App = () => {
         let userToken;
         userToken = null;
         if (userName == "user" && password == "pass") {
-          userToken = "vsdfv";
           try {
+            userToken = "vsdfv";
             await AsyncStorage.setItem("userToken", userToken);
           } catch (e) {
             console.log(e);
