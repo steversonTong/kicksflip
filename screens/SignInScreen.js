@@ -25,6 +25,13 @@ const SignInScreen = ({ navigation }) => {
 
   const { signIn } = React.useContext(AuthContext);
 
+  const handleUsernameChange = (val) => {
+    setData({
+      ...data,
+      username: val,
+    });
+  };
+
   const handlePasswordChange = (val) => {
     setData({
       ...data,
@@ -73,6 +80,7 @@ const SignInScreen = ({ navigation }) => {
             placeholder="Email or Username"
             style={styles.text_input}
             autoCapitalize="none"
+            onChangeText={(val) => handleUsernameChange(val)}
           />
         </View>
         <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
@@ -99,12 +107,14 @@ const SignInScreen = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
             By proceeding, you agree to both:{" "}
-            <Text style={{ color: "blue" }}>Private Policy</Text> &{" "}
-            <Text style={{ color: "blue" }}>Terms of Services</Text>
+            <Text style={styles.underline}>Private Policy</Text> &{" "}
+            <Text style={styles.underline}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
+                // console.log("username:", data.username);
+                // console.log("password:", data.password);
                 loginHandle(data.username, data.password);
               }}
             >
@@ -187,4 +197,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  underline: { textDecorationLine: "underline" },
 });

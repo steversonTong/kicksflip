@@ -132,8 +132,8 @@ const SignUpScreen = ({ navigation }) => {
         <View style={[styles.text_header, { marginTop: 30 }]}>
           <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
             By proceeding, you agree to both:{" "}
-            <Text style={{ color: "blue" }}>Private Policy</Text> &{" "}
-            <Text style={{ color: "blue" }}>Terms of Services</Text>
+            <Text style={styles.underline}>Private Policy</Text> &{" "}
+            <Text style={styles.underline}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
             <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
@@ -216,4 +216,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  underline: { textDecorationLine: "underline" },
 });

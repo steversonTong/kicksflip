@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useReducer } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, ActivityIndicator } from "react-native";
-// import { AsyncStorage } from "@react-native-async-storage/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import MainTabScreen from "./screens/MainTabScreen";
 import RootStackScreen from "./screens/RootStackScreen";
