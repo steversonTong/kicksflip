@@ -27,6 +27,7 @@ const SignInScreen = ({ navigation }) => {
   const handleUsernameChange = (val) => {
     setData({
       ...data,
+      email: val,
       username: val,
     });
   };
