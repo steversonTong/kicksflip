@@ -21,6 +21,8 @@ const SignInScreen = ({ navigation }) => {
     username: "",
     password: "",
     secureTextEntry: true,
+    isValidUser: true,
+    isValidPassword: true,
   });
 
   const { signIn } = React.useContext(AuthContext);
@@ -58,7 +60,6 @@ const SignInScreen = ({ navigation }) => {
 
   return (
     //password hidekey not working properly
-    // <HideKeyboard>
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="light content" />
       <View style={styles.text_header}>
@@ -83,6 +84,7 @@ const SignInScreen = ({ navigation }) => {
             onChangeText={(val) => handleUsernameChange(val)}
           />
         </View>
+
         <Text style={[styles.text_basic, { marginTop: 50 }]}>Password</Text>
         <View style={styles.action}>
           <Feather name="lock" color="#4B4B4B" size={20} />
@@ -124,7 +126,6 @@ const SignInScreen = ({ navigation }) => {
         </View>
       </View>
     </SafeAreaView>
-    // </HideKeyboard>
   );
 };
 

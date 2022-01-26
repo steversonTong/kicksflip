@@ -58,7 +58,6 @@ const SignUpScreen = ({ navigation }) => {
   );
 
   return (
-    // <HideKeyboard>
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="light content" />
       <View style={styles.text_header}>
@@ -109,7 +108,7 @@ const SignUpScreen = ({ navigation }) => {
             )}
           </TouchableOpacity>
         </View>
-        <Text style={[styles.text_basic, { marginTop: 30 }]}>
+        {/* <Text style={[styles.text_basic, { marginTop: 30 }]}>
           Confirm Password
         </Text>
         <View style={styles.action}>
@@ -128,7 +127,7 @@ const SignUpScreen = ({ navigation }) => {
               <Feather name="eye" color="#4B4B4B" size={20} />
             )}
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={[styles.text_header, { marginTop: 30 }]}>
           <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
             By proceeding, you agree to both:{" "}
@@ -136,14 +135,13 @@ const SignUpScreen = ({ navigation }) => {
             <Text style={styles.underline}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
-            <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+            <TouchableOpacity onPress={() => {}}>
               <Text style={{ color: "white" }}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     </SafeAreaView>
-    // </HideKeyboard>
   );
 };
 

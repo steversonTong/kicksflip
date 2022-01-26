@@ -68,8 +68,8 @@ const App = () => {
           try {
             userToken = "vsdfv";
             await AsyncStorage.setItem("userToken", userToken);
-          } catch (e) {
-            console.log(e);
+          } catch (error) {
+            console.log(error);
           }
         }
         dispatch({
@@ -81,8 +81,8 @@ const App = () => {
       signOut: async () => {
         try {
           await AsyncStorage.removeItem("userToken");
-        } catch (e) {
-          console.log(e);
+        } catch (error) {
+          console.log(error);
         }
         dispatch({
           type: "LOGOUT",
@@ -100,8 +100,8 @@ const App = () => {
       userToken = null;
       try {
         userToken = await AsyncStorage.getItem("userToken");
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        console.log(error);
       }
       dispatch({
         type: "RETRIEVE_TOKEN",
