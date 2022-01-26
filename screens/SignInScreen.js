@@ -18,6 +18,9 @@ import { auth } from "../firebase";
 import { AuthContext } from "../components/context";
 
 const SignInScreen = ({ navigation }) => {
+  const [data, setData] = React.useState({
+    secureTextEntry: true,
+  });
   const [email, setEmail] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -27,8 +30,8 @@ const SignInScreen = ({ navigation }) => {
   const handleUsernameChange = (val) => {
     setData({
       ...data,
-      email: val,
       username: val,
+      email: val,
     });
   };
 
@@ -54,7 +57,7 @@ const SignInScreen = ({ navigation }) => {
 
   const loginHandle = () => {
     auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, username, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
