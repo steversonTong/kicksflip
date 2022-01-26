@@ -124,7 +124,7 @@ const SignInScreen = ({ navigation }) => {
               onPress={() => {
                 // console.log("username:", data.username);
                 // console.log("password:", data.password);
-                loginHandle(data.email, data.password);
+                loginHandle;
               }}
             >
               <Text style={{ color: "white" }}>Log In</Text>
