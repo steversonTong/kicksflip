@@ -22,15 +22,15 @@ const SignInScreen = ({ navigation }) => {
     secureTextEntry: true,
   });
   const [email, setEmail] = React.useState("");
-  const [username, setUsername] = React.useState("");
+  // const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const { signIn } = React.useContext(AuthContext);
 
-  const handleUsernameChange = (val) => {
+  const handleEmailChange = (val) => {
     setData({
       ...data,
-      username: val,
+      // username: val,
       email: val,
     });
   };
@@ -57,7 +57,7 @@ const SignInScreen = ({ navigation }) => {
 
   const loginHandle = () => {
     auth
-      .createUserWithEmailAndPassword(email, username, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
@@ -85,10 +85,10 @@ const SignInScreen = ({ navigation }) => {
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#4B4B4B" size={20} />
           <TextInput
-            placeholder="Email or Username"
+            placeholder="Email"
             style={styles.text_input}
             autoCapitalize="none"
-            onChangeText={(val) => handleUsernameChange(val)}
+            onChangeText={(val) => handleEmailChange(val)}
           />
         </View>
 
@@ -124,7 +124,7 @@ const SignInScreen = ({ navigation }) => {
               onPress={() => {
                 // console.log("username:", data.username);
                 // console.log("password:", data.password);
-                loginHandle(data.username, data.password);
+                loginHandle(data.email, data.password);
               }}
             >
               <Text style={{ color: "white" }}>Log In</Text>

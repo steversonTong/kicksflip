@@ -17,7 +17,8 @@ const App = () => {
 
   const initialLoginState = {
     isLoading: true,
-    userName: null,
+    // userName: null,
+    userEmail: null,
     userToken: null,
   };
 
@@ -32,21 +33,24 @@ const App = () => {
       case "LOGIN":
         return {
           ...prevState,
-          userName: action.id,
+          // userName: action.id,
+          userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
       case "LOGOUT":
         return {
           ...prevState,
-          userName: null,
+          // userName: null,
+          userEmail: null,
           userToken: null,
           isLoading: false,
         };
       case "REGISTER":
         return {
           ...prevState,
-          userName: action.id,
+          // userName: action.id,
+          userEmail: action.id,
           userToken: action.token,
           isLoading: false,
         };
@@ -61,10 +65,11 @@ const App = () => {
   const authContext = React.useMemo(
     //NEED TO IMPLIMENT DATABASE AND API HERE TO BE ABLE TO TRUELY AUTHETICATE USER AND PASSWORD
     () => ({
-      signIn: async (userName, password) => {
+      //Change userEmail from userName
+      signIn: async (userEmail, password) => {
         let userToken;
         userToken = null;
-        if (userName == "user" && password == "pass") {
+        if (userEmail == "user" && password == "pass") {
           try {
             userToken = "vsdfv";
             await AsyncStorage.setItem("userToken", userToken);
@@ -74,7 +79,8 @@ const App = () => {
         }
         dispatch({
           type: "LOGIN",
-          id: userName,
+          // id: userName,
+          id: userEmail,
           token: userToken,
         });
       },
