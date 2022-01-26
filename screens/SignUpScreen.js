@@ -16,6 +16,9 @@ import Feather from "react-native-vector-icons/Feather";
 import { auth } from "../firebase";
 
 const SignUpScreen = ({ navigation }) => {
+  const [data, setData] = React.useState({
+    secureTextEntry: true,
+  });
   const [email, setEmail] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
