@@ -13,27 +13,31 @@ import {
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
+import { auth } from "../firebase";
 
 const SignUpScreen = ({ navigation }) => {
-  const [data, setData] = React.useState({
-    email: "",
-    password: "",
-    confirm_password: "",
-    secureTextEntry: true,
-    confirm_secureTextEntry: true,
-  });
+  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleEmailChange = (val) => {
+    setData({
+      ...data,
+      email: val,
+    });
+  };
+
+  const handleUsernameChange = (val) => {
+    setData({
+      ...data,
+      username: val,
+    });
+  };
 
   const handlePasswordChange = (val) => {
     setData({
       ...data,
       password: val,
-    });
-  };
-
-  const handleConfirmPasswordChange = (val) => {
-    setData({
-      ...data,
-      confirm_password: val,
     });
   };
 
@@ -44,18 +48,23 @@ const SignUpScreen = ({ navigation }) => {
     });
   };
 
-  const updateConfirmSecureTextEntry = () => {
-    setData({
-      ...data,
-      confirm_secureTextEntry: !data.confirm_secureTextEntry,
-    });
-  };
-
   const HideKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
     </TouchableWithoutFeedback>
   );
+
+  const signupHandle = () => {
+    auth
+      .createUserWithEmailUsernameAndPassword(email, username, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("email: ", user.email);
+        console.log("username: ", user.username);
+        console.log("password: ", user.password);
+      })
+      .cacth((error) => alert(error.message));
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,6 +88,7 @@ const SignUpScreen = ({ navigation }) => {
             placeholder="Create Email"
             style={styles.text_input}
             autoCapitalize="none"
+            onChangeText={(val) => handleEmailChange(val)}
           />
         </View>
         <Text style={[styles.text_basic, { marginTop: 30 }]}>Username</Text>
@@ -88,6 +98,7 @@ const SignUpScreen = ({ navigation }) => {
             placeholder="Create Username"
             style={styles.text_input}
             autoCapitalize="none"
+            onChangeText={(val) => handleUsernameChange(val)}
           />
         </View>
         <Text style={[styles.text_basic, { marginTop: 30 }]}>Password</Text>
@@ -135,7 +146,7 @@ const SignUpScreen = ({ navigation }) => {
             <Text style={styles.underline}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={signupHandle}>
               <Text style={{ color: "white" }}>Sign Up</Text>
             </TouchableOpacity>
           </View>

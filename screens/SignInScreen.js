@@ -13,17 +13,14 @@ import {
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
+import { auth } from "../firebase";
 
 import { AuthContext } from "../components/context";
 
 const SignInScreen = ({ navigation }) => {
-  const [data, setData] = React.useState({
-    username: "",
-    password: "",
-    secureTextEntry: true,
-    isValidUser: true,
-    isValidPassword: true,
-  });
+  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   const { signIn } = React.useContext(AuthContext);
 
@@ -54,8 +51,14 @@ const SignInScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 
-  const loginHandle = (username, password) => {
-    signIn(username, password);
+  const loginHandle = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("email: ", user.email);
+      })
+      .cacth((error) => alert(error.message));
   };
 
   return (
