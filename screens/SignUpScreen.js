@@ -13,7 +13,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-import { auth, createUserWithEmailAndPassword } from "../firebase";
+import { auth } from "../firebase";
 
 const SignUpScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
@@ -58,12 +58,11 @@ const SignUpScreen = ({ navigation }) => {
   );
 
   const signupHandle = () => {
-    createUserWithEmailAndPassword(email, password)
+    auth
+      .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
-        // console.log("username: ", user.username);
-        console.log("password: ", user.password);
       })
       .cacth((error) => alert(error.message));
   };
@@ -150,8 +149,8 @@ const SignUpScreen = ({ navigation }) => {
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
-                console.log("username:", data.email);
-                console.log("password:", data.password);
+                // console.log("username:", data.email);
+                // console.log("password:", data.password);
                 signupHandle;
               }}
             >
