@@ -13,14 +13,14 @@ import {
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-import { auth } from "../firebase";
+import { auth, createUserWithEmailAndPassword } from "../firebase";
 
 const SignUpScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     secureTextEntry: true,
   });
   const [email, setEmail] = React.useState("");
-  const [username, setUsername] = React.useState("");
+  // const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const handleEmailChange = (val) => {
@@ -58,12 +58,11 @@ const SignUpScreen = ({ navigation }) => {
   );
 
   const signupHandle = () => {
-    auth
-      .createUserWithEmailUsernameAndPassword(email, username, password)
+    createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
-        console.log("username: ", user.username);
+        // console.log("username: ", user.username);
         console.log("password: ", user.password);
       })
       .cacth((error) => alert(error.message));
@@ -94,7 +93,7 @@ const SignUpScreen = ({ navigation }) => {
             onChangeText={(val) => handleEmailChange(val)}
           />
         </View>
-        <Text style={[styles.text_basic, { marginTop: 30 }]}>Username</Text>
+        {/* <Text style={[styles.text_basic, { marginTop: 30 }]}>Username</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#4B4B4B" size={20} />
           <TextInput
@@ -103,7 +102,7 @@ const SignUpScreen = ({ navigation }) => {
             autoCapitalize="none"
             onChangeText={(val) => handleUsernameChange(val)}
           />
-        </View>
+        </View> */}
         <Text style={[styles.text_basic, { marginTop: 30 }]}>Password</Text>
         <View style={styles.action}>
           <Feather name="lock" color="#4B4B4B" size={20} />
@@ -149,7 +148,13 @@ const SignUpScreen = ({ navigation }) => {
             <Text style={styles.underline}>Terms of Services</Text>
           </Text>
           <View style={styles.button}>
-            <TouchableOpacity onPress={signupHandle}>
+            <TouchableOpacity
+              onPress={() => {
+                console.log("username:", data.email);
+                console.log("password:", data.password);
+                signupHandle;
+              }}
+            >
               <Text style={{ color: "white" }}>Sign Up</Text>
             </TouchableOpacity>
           </View>
