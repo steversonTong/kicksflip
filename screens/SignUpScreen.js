@@ -59,7 +59,7 @@ const SignUpScreen = ({ navigation }) => {
 
   const signupHandle = () => {
     auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
