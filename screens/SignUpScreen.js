@@ -13,26 +13,23 @@ import {
 import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
-import { auth } from "../firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUpScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     secureTextEntry: true,
   });
   const [email, setEmail] = React.useState("");
-  // const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const handleEmailChange = (val) => {
     setData({
-      ...data,
       email: val,
     });
   };
 
   const handleUsernameChange = (val) => {
     setData({
-      ...data,
       username: val,
     });
   };
@@ -58,13 +55,16 @@ const SignUpScreen = ({ navigation }) => {
   );
 
   const signupHandle = () => {
-    auth
-      .createUserWithEmailAndPassword(auth, email, password)
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("email: ", user.email);
       })
-      .cacth((error) => alert(error.message));
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
 
   return (
@@ -149,8 +149,8 @@ const SignUpScreen = ({ navigation }) => {
           <View style={styles.button}>
             <TouchableOpacity
               onPress={() => {
-                // console.log("username:", data.email);
-                // console.log("password:", data.password);
+                console.log("username:", data.email);
+                console.log("password:", data.password);
                 signupHandle;
               }}
             >
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "flex-start",
     paddingHorizontal: 20,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   text_header: {
     color: "#556B2F",
