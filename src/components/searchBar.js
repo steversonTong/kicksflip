@@ -16,7 +16,7 @@ const SearchBar = (props) => {
         {/* search Icon */}
         <Feather
           name="search"
-          size={20}
+          size={18}
           color="black"
           style={{ marginLeft: 1 }}
         />
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   input: {
-    fontSize: 20,
+    fontSize: 18,
     marginLeft: 10,
     width: "90%",
   },
