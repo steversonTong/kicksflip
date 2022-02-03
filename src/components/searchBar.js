@@ -59,7 +59,6 @@ const SearchBar = (props) => {
 };
 export default SearchBar;
 
-// styles
 const styles = StyleSheet.create({
   container: {
     margin: 15,
