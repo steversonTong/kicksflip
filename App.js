@@ -4,10 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import MainTabScreen from "./screens/MainTabScreen";
-import RootStackScreen from "./screens/RootStackScreen";
+import MainTabScreen from "./src/screens/MainTabScreen";
+import RootStackScreen from "./src/screens/RootStackScreen";
 
-import { AuthContext } from "./components/context";
+import { AuthContext } from "./src/components/context";
 
 const Stack = createNativeStackNavigator();
 

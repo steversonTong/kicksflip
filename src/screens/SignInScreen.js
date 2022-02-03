@@ -14,7 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
-import { AuthContext } from "../../components/context";
+import { AuthContext } from "../components/context";
 
 const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({

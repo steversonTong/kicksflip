@@ -6,7 +6,6 @@ import {
   Dimensions,
   StyleSheet,
   StatusBar,
-  Image,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -22,7 +21,7 @@ const SplashScreen = ({ navigation }) => {
         <Animatable.Image
           // animation="bounceIn"
           // duraton="1500"
-          source={require("../assets/kicksfliplogo.png")}
+          source={require("../../assets/kicksfliplogo.png")}
           style={styles.logo}
           resizeMode="stretch"
         />
