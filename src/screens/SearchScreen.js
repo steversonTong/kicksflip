@@ -1,13 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import SearchType from "../components/Searchbar";
+import SearchBar from "../components/SearchBar";
 
 const SearchScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <SearchType />
-      <Text style={{ color: "white" }}>Search Screen</Text>
+      <SearchBar />
     </SafeAreaView>
   );
 };
