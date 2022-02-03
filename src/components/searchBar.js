@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
-import Entypo from "react-native-vector-icons/Entypo";
 
 const SearchBar = (props) => {
   return (
@@ -16,7 +15,7 @@ const SearchBar = (props) => {
         {/* search Icon */}
         <Feather
           name="search"
-          size={18}
+          size={20}
           color="black"
           style={{ marginLeft: 1 }}
         />
@@ -32,8 +31,8 @@ const SearchBar = (props) => {
         />
         {/* cross Icon, depending on whether the search bar is clicked or not */}
         {props.clicked && (
-          <Entypo
-            name="cross"
+          <Feather
+            name="x"
             size={20}
             color="black"
             style={{ padding: 1 }}
@@ -45,14 +44,14 @@ const SearchBar = (props) => {
       </View>
       {/* cancel button, depending on whether the search bar is clicked or not */}
       {props.clicked && (
-        <View>
+        <View style={{ marginLeft: 5 }}>
           <Button
             title="Cancel"
             onPress={() => {
               Keyboard.dismiss();
               props.setClicked(false);
             }}
-          ></Button>
+          />
         </View>
       )}
     </View>
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   input: {
-    fontSize: 18,
+    fontSize: 15,
     marginLeft: 10,
     width: "90%",
   },
