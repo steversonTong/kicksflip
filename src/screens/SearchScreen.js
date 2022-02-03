@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  ActivityIndicator,
-  Text,
-  SafeAreaView,
-  Platform,
-} from "react-native";
+import { StyleSheet, SafeAreaView, Text, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import SearchBar from "../components/SearchBar";
 import List from "../components/List";
@@ -19,7 +13,6 @@ const SearchScreen = () => {
   useEffect(() => {
     const getData = async () => {
       const apiResponse = await fetch();
-      // ("https://my-json-server.typicode.com/kevintomas1995/logRocket_searchBar/languages");
       const data = await apiResponse.json();
       setFakeData(data);
     };
@@ -45,6 +38,8 @@ const SearchScreen = () => {
   );
 };
 
+export default SearchScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -54,5 +49,3 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
-
-export default SearchScreen;
