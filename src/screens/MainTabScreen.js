@@ -25,7 +25,7 @@ const MainTabScreen = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-home" color={color} size={26} />
+            <Icon name="ios-home-outline" color={color} size={26} />
           ),
         }}
       />
@@ -34,7 +34,7 @@ const MainTabScreen = () => {
         component={SearchScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-search" color={color} size={26} />
+            <Icon name="ios-search-outline" color={color} size={26} />
           ),
         }}
       />
@@ -52,7 +52,7 @@ const MainTabScreen = () => {
         component={InboxScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-chatbox" color={color} size={26} />
+            <Icon name="ios-chatbox-outline" color={color} size={26} />
           ),
         }}
       />
@@ -61,7 +61,7 @@ const MainTabScreen = () => {
         component={AccoutScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-person" color={color} size={26} />
+            <Icon name="ios-person-outline" color={color} size={26} />
           ),
         }}
       />
