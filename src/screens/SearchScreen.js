@@ -12,7 +12,9 @@ const SearchScreen = () => {
   //Get shoe API here THIS is just a placeholder API
   useEffect(() => {
     const getData = async () => {
-      const apiResponse = await fetch();
+      const apiResponse = await fetch(
+        "https://my-json-server.typicode.com/kevintomas1995/logRocket_searchBar/languages"
+      );
       const data = await apiResponse.json();
       setFakeData(data);
     };

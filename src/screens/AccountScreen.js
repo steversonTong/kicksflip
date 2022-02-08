@@ -17,15 +17,14 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{ color: "white" }}>Account Screen</Text>
-      <View style={styles.button}>
+      <View style={styles.line}>
         <TouchableOpacity
           onPress={() => {
             signOut();
           }}
         >
-          <Text style={{ color: "white" }}>
-            Log Out <Icon name="exit-to-app" color="white" size={20} />
+          <Text style={styles.logout}>
+            <Icon name="exit-to-app" color="#556B2F" size={20} /> Log Out
           </Text>
         </TouchableOpacity>
       </View>
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#4B4B4B",
-    alignItems: "center",
     paddingHorizontal: 20,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
@@ -102,5 +100,15 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: "bold",
+  },
+  line: {
+    margin: 20,
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
+  },
+  logout: {
+    color: "#556B2F",
+    fontSize: 20,
   },
 });
