@@ -8,8 +8,10 @@ import {
   Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import LOGOUT from "react-native-vector-icons/MaterialCommunityIcons";
-import PROFILE from "react-native-vector-icons/Ionicons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Feather from "react-native-vector-icons/Feather";
+import FontAwsome from "react-native-vector-icons/FontAwesome5";
 
 import { AuthContext } from "../components/context";
 
@@ -21,7 +23,67 @@ const AccountScreen = () => {
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <PROFILE name="ios-person" color="#FAEBD7" size={20} /> Profile
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Profile
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <FontAwsome name="hand-holding" color="#FAEBD7" size={20} /> Wants
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Collection
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Trade
+            History
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Feather name="settings" color="#FAEBD7" size={20} /> Settings
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> How it
+            Works
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Help
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Private
+            Policy
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Terms of
+            Services
           </Text>
         </TouchableOpacity>
       </View>
@@ -32,7 +94,12 @@ const AccountScreen = () => {
           }}
         >
           <Text style={styles.logout}>
-            <LOGOUT name="exit-to-app" color="#556B2F" size={20} /> Log Out
+            <MaterialCommunityIcons
+              name="exit-to-app"
+              color="#556B2F"
+              size={20}
+            />
+            Log Out
           </Text>
         </TouchableOpacity>
       </View>
@@ -57,7 +124,7 @@ const styles = StyleSheet.create({
   },
   normal_text: {
     color: "#FAEBD7",
-    fontSize: 20,
+    fontSize: 18,
   },
   logout: {
     color: "#556B2F",

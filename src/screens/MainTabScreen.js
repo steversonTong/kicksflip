@@ -1,11 +1,13 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
+import Feather from "react-native-vector-icons/Feather";
 
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
 import InboxScreen from "./InboxScreen";
 import AccoutScreen from "./AccountScreen";
+import TradeScreen from "./TradeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,6 +35,15 @@ const MainTabScreen = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="ios-search" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Trading"
+        component={TradeScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Feather name="shopping-bag" color={color} size={26} />
           ),
         }}
       />
