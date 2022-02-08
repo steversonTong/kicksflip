@@ -8,7 +8,8 @@ import {
   Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import LOGOUT from "react-native-vector-icons/MaterialCommunityIcons";
+import PROFILE from "react-native-vector-icons/Ionicons";
 
 import { AuthContext } from "../components/context";
 
@@ -18,13 +19,20 @@ const AccountScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.line}>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={styles.normal_text}>
+            <PROFILE name="ios-person" color="#FAEBD7" size={20} /> Profile
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.line}>
         <TouchableOpacity
           onPress={() => {
             signOut();
           }}
         >
           <Text style={styles.logout}>
-            <Icon name="exit-to-app" color="#556B2F" size={20} /> Log Out
+            <LOGOUT name="exit-to-app" color="#556B2F" size={20} /> Log Out
           </Text>
         </TouchableOpacity>
       </View>
@@ -38,17 +46,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#4B4B4B",
-    paddingHorizontal: 20,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   line: {
-    margin: 20,
+    paddingHorizontal: 15,
+    margin: 11,
     paddingBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "white",
+    borderBottomWidth: 0.2,
+    borderBottomColor: "lightgrey",
+  },
+  normal_text: {
+    color: "#FAEBD7",
+    fontSize: 20,
   },
   logout: {
     color: "#556B2F",
     fontSize: 20,
+    fontWeight: "bold",
   },
 });
