@@ -23,29 +23,28 @@ const AccountScreen = () => {
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Profile
+            <Feather name="user" color="#FAEBD7" size={20} /> Profile
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <FontAwsome name="hand-holding" color="#FAEBD7" size={20} /> Wants
+            <Feather name="gift" color="#FAEBD7" size={20} /> Wants
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Collection
+            <Feather name="box" color="#FAEBD7" size={20} /> Collection
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Trade
-            History
+            <Feather name="book" color="#FAEBD7" size={20} /> Trade History
           </Text>
         </TouchableOpacity>
       </View>
@@ -59,22 +58,21 @@ const AccountScreen = () => {
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> How it
-            Works
+            <Feather name="info" color="#FAEBD7" size={20} /> How it Works
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Help
+            <Feather name="help-circle" color="#FAEBD7" size={20} /> Help
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Private
+            <Feather name="book-open" color="#FAEBD7" size={20} /> Private
             Policy
           </Text>
         </TouchableOpacity>
@@ -82,7 +80,7 @@ const AccountScreen = () => {
       <View style={styles.line}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.normal_text}>
-            <Ionicons name="ios-person" color="#FAEBD7" size={20} /> Terms of
+            <Feather name="book-open" color="#FAEBD7" size={20} /> Terms of
             Services
           </Text>
         </TouchableOpacity>
