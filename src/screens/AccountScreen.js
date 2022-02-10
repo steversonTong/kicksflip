@@ -9,9 +9,7 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
-import FontAwsome from "react-native-vector-icons/FontAwesome5";
 
 import { AuthContext } from "../components/context";
 
