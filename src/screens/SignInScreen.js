@@ -69,11 +69,11 @@ const SignInScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="light content" />
       <View style={styles.text_header}>
-        <Text style={styles.text_header}>Log In</Text>
+        <Text style={{ color: "#556B2F" }}>Log In</Text>
       </View>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Feather
-          name="arrow-left"
+          name="chevron-left"
           color="#556B2F"
           size={25}
           style={{ marginTop: -24, paddingLeft: 30 }}
@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   text_header: {
-    color: "#556B2F",
     alignItems: "center",
     fontWeight: "bold",
     fontSize: 20,
