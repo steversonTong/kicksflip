@@ -26,42 +26,48 @@ const AccountScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate("WantsScreen")}>
           <Text style={styles.normal_text}>
             <Feather name="gift" color="#FAEBD7" size={20} /> Wants
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("CollectionScreen")}
+        >
           <Text style={styles.normal_text}>
             <Feather name="box" color="#FAEBD7" size={20} /> Collection
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("TradeHistoryScreen")}
+        >
           <Text style={styles.normal_text}>
             <Feather name="book" color="#FAEBD7" size={20} /> Trade History
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate("SettingsScreen")}>
           <Text style={styles.normal_text}>
             <Feather name="settings" color="#FAEBD7" size={20} /> Settings
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("HowItWorksScreen")}
+        >
           <Text style={styles.normal_text}>
             <Feather name="info" color="#FAEBD7" size={20} /> How it Works
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate("HelpScreen")}>
           <Text style={styles.normal_text}>
             <Feather name="help-circle" color="#FAEBD7" size={20} /> Help
           </Text>
