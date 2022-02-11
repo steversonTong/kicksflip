@@ -6,7 +6,6 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import Feather from "react-native-vector-icons/Feather";
 
 const ProfileScreen = ({ navigation }) => {
