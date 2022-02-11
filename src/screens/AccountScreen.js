@@ -13,13 +13,13 @@ import Feather from "react-native-vector-icons/Feather";
 
 import { AuthContext } from "../components/context";
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   const { signOut } = React.useContext(AuthContext);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.line}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
           <Text style={styles.normal_text}>
             <Feather name="user" color="#FAEBD7" size={20} /> Profile
           </Text>
