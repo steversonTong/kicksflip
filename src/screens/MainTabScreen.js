@@ -6,7 +6,7 @@ import Feather from "react-native-vector-icons/Feather";
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
 import InboxScreen from "./InboxScreen";
-import AccoutScreen from "./AccountScreen";
+import AccoutStackScreen from "./AccountStackScreen";
 import TradeScreen from "./TradeScreen";
 
 const Tab = createBottomTabNavigator();
@@ -58,7 +58,7 @@ const MainTabScreen = () => {
       />
       <Tab.Screen
         name="Account"
-        component={AccoutScreen}
+        component={AccoutStackScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person-outline" color={color} size={26} />
