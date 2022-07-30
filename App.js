@@ -129,8 +129,8 @@ const App = () => {
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
         {/* {loginState.userToken != null ? <MainTabScreen /> : <RootStackScreen />} */}
-        <MainTabScreen />
-        {/* <RootStackScreen /> */}
+        {/* <MainTabScreen /> */}
+        <RootStackScreen />
       </NavigationContainer>
     </AuthContext.Provider>
   );

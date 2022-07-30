@@ -120,7 +120,7 @@ const SignUpScreen = ({ navigation }) => {
             )}
           </TouchableOpacity>
         </View>
-        {/* <Text style={[styles.text_basic, { marginTop: 30 }]}>
+        <Text style={[styles.text_basic, { marginTop: 30 }]}>
           Confirm Password
         </Text>
         <View style={styles.action}>
@@ -130,16 +130,16 @@ const SignUpScreen = ({ navigation }) => {
             secureTextEntry={data.confirm_secureTextEntry ? true : false}
             style={styles.text_input}
             autoCapitalize="none"
-            onChangeText={(val) => handleConfirmPasswordChange(val)}
+            onChangeText={(val) => handlePasswordChange(val)}
           />
-          <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
+          <TouchableOpacity onPress={updateSecureTextEntry}>
             {data.secureTextEntry ? (
               <Feather name="eye-off" color="#4B4B4B" size={20} />
             ) : (
               <Feather name="eye" color="#4B4B4B" size={20} />
             )}
           </TouchableOpacity>
-        </View> */}
+        </View>
         <View style={[styles.text_header, { marginTop: 30 }]}>
           <Text style={{ color: "black", fontSize: 10, marginTop: 20 }}>
             By proceeding, you agree to both:{" "}
